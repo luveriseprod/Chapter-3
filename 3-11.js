@@ -23,9 +23,11 @@ let user = {
 function artUser (user) {
     if (user.name) {
         console.log(`User ${user.name} has ${user.articles.length} articles`);
-        switch (user.articles.length) {
-            case 0 || 1: console.log("Need to add more articles!");
-            case 2 || 3: console.log("Great start!");
+        switch (true) {
+            case user.articles.length<2: console.log("Need to add more articles!");
+            break;
+            case user.articles.length<5: console.log("Great start!");
+            break;
             default: console.log("Keep it up!");
         }
     } else {
