@@ -1,24 +1,24 @@
-function newFunc(name, age) {
-    let nameDefault = "username";
-    let ageDefault = 99;
+function userBuilder(name, age) {
+  const nameDefault = "username";
+  const ageDefault = 99;
 
-    if (!name) name = nameDefault;
-    if (!age) age = ageDefault;
+  if (!name) name = nameDefault;
+  if (!age) age = ageDefault;
 
-    function user() {
-        return {
-            name: name,
-            age: age,
-        };
+  function createUser() {
+    return {
+      name: name,
+      age: age,
     };
-    
-    return user();
-};
+  }
 
-let newUser1 = newFunc("Bob", 29);
-let newUser2 = newFunc("Bob");
-let newUser3 = newFunc();
+  return createUser;
+}
 
-console.log(newUser1);
-console.log(newUser2);
-console.log(newUser3);
+let userCreator1 = userBuilder("Bob", 29);
+let userCreator2 = userBuilder("Bob");
+let userCreator3 = userBuilder();
+
+console.log(userCreator1());
+console.log(userCreator2());
+console.log(userCreator3());
