@@ -1,19 +1,32 @@
-function getTime(date) {
-    let data = new Date();
-    let hours = data.getHours();
-    let min = data.getMinutes();
-    let sec = data.getSeconds();
-    switch (true) {
-        case min<10: min = "0"+min;
-        case sec<10: sec += "0"+sec;
-    }
-    console.log(hours+':'+min+':'+sec)
-}
-
-setInterval(getTime(), 1000)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 
 
 
@@ -110,7 +123,7 @@ console.log(sum);
 
 
 
-
+*/
 
 
 
