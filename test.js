@@ -1,25 +1,87 @@
-class User {
-    constructor(name) {
-        this.name = name;
-    };
+// console.log("Message 1");
 
-    sayHi = function() {
-        console.log("Hi am", this.name);
-    }
+// // setTimeout(() => {
+// //     console.log("Message 2");
+// // }, 2000)
+
+// console.log("Message 3");
+
+// console.log("-------------------callback------------------");
+
+// let f1 = function (callback) {
+//     return setTimeout(() => {
+//         console.log("f1 is here");
+//         callback();
+//     }, 2000)
+// }
+// let f2 = function () {
+//     return setTimeout(() => {
+//         console.log("f2 is here");
+//     }, 1000)
+// }
+
+// f1(() => f2())
+
+// f1(() => {
+//     f2(() => {
+//         f3(() => {
+
+//         })
+//     })
+// })
+
+console.log("-------------------Promise------------------");
+
+function promiseF1() {
+  return new Promise(function (resolve, reject) {
+    setTimeout(() => {
+      console.log("promiseF1");
+      resolve();
+    }, 2000);
+  });
 }
 
-let user1 = new User("Alex")
-console.log(user1);
-
-class Admin extends User{
-    constructor(name) {
-        super(name);
-    }
+function promiseF2() {
+  return new Promise(function (resolve, reject) {
+    setTimeout(() => {
+      console.log("promiseF1");
+      resolve();
+    }, 1000);
+  });
 }
 
-let user2 = new Admin("Bob")
-user2.sayHi()
-console.log(user2);
+promiseF1()
+    .then(() => {
+        console.log("F1 finished");
+    })
+    .catch(() => {
+        console.log("kek");
+    })
+
+promiseF1().then(()=> {
+    promiseF2();
+}).then(() => {
+    ptomiseF3();
+}).then(() => {
+    ptomiseF4();
+}).then(() => {
+    ptomiseF5();
+})
+
+console.log("------------------------ASYNC/AWAIT--------------------------");
+
+async function myAsyncFunc() {
+    await promiseF1();
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -55,29 +117,6 @@ console.log(user2);
 // console.log(user3);
 
 // user3.sayHi();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
 
@@ -177,6 +216,3 @@ console.log(sum);
 
 
 */
-
-
-
